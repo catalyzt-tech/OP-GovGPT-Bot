@@ -30,9 +30,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isCommand()) return
 
   const { commandName } = interaction
-  console.log(commandName)
-  if (commandName === 'ask') {
-    ask.execute(interaction)
+  // console.log(commandName)
+  try {
+    if (commandName === 'ask') {
+      ask.execute(interaction)
+    }
+  } catch (error) {
+    console.error(error)
+    interaction.reply('There was an error while executing this command!')
   }
 })
 
