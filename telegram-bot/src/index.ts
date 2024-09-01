@@ -25,8 +25,19 @@ type TelegramMessage = {
   text: string
 }
 
-bot.on('message', (msg: any) => {
+bot.on('message', async (msg: any) => {
   const chatId = msg.chat.id
-  console.log(msg)
-  bot.sendMessage(chatId, 'Received your message')
+  // console.log(msg)
+  const question = msg.text
+  console.log('Question' + question)
+  const answer = await fetch(process.env.API_ENDPOINT as string, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ question }),
+  }).then((res) => res.json())
+  setTimeout(() => {}, 5000)
+  console.log('Answer', answer)
+  bot.sendMessage(chatId, answer.result.output)
 })
