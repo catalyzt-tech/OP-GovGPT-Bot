@@ -1,0 +1,12 @@
+{
+  "name": "@op-gpt/discord-telegram",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "(cd discord-bot && pnpm dev) & (cd telegram-bot && pnpm dev)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
