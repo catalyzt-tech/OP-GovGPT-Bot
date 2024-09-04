@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "(cd discord-bot && pnpm build) & (cd telegram-bot && pnpm build)",
     "dev": "(cd discord-bot && pnpm dev) & (cd telegram-bot && pnpm dev)"
   },
   "keywords": [],
