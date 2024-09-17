@@ -2,7 +2,7 @@
   "name": "random-discord-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "build": "pnpm i",
     "dev": "nodemon --exec ts-node src/index.ts",
