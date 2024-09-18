@@ -36,7 +36,6 @@ export async function execute(interaction: any): Promise<void> {
       }
     })
 
-  setTimeout(() => {}, 1000)
   // if (answer.result.output.length > 2000) {
   //   return await interaction.editReply(answer.result.output.slice(0, 2000))
   // }
@@ -48,4 +47,4 @@ export async function execute(interaction: any): Promise<void> {
   //   response.links.map((link) => `• ${link}`).join('\n')
   const resultData: string = response.result.output
   return await interaction.editReply(resultData)
-}
+  await interaction.editReply(resultData)

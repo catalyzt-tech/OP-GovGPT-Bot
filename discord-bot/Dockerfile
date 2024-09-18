@@ -8,9 +8,9 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 # Install PNPM globally and install dependencies, including dotenv
-RUN npm install -g pnpm \
-    && pnpm install --frozen-lockfile \
-    && pnpm add dotenv
+RUN npm install -g pnpm && \
+    pnpm install --frozen-lockfile && \
+    pnpm add dotenv
 
 # Copy the rest of the project files to the container
 COPY . .

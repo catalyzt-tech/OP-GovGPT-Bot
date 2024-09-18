@@ -4,7 +4,9 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 
-RUN npm -g install pnpm && pnpm install && pnpm add dotenv
+RUN npm -g install pnpm \
+	&& pnpm install \
+	&& pnpm add dotenv
 
 COPY . .
 
