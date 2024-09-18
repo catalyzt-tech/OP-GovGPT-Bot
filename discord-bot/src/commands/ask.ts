@@ -46,5 +46,5 @@ export async function execute(interaction: any): Promise<void> {
   //   '\n' +
   //   response.links.map((link) => `• ${link}`).join('\n')
   const resultData: string = response.result.output
-  return await interaction.editReply(resultData)
-  await interaction.editReply(resultData)
+  return interaction.editReply(resultData)
+}
