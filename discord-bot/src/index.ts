@@ -40,6 +40,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
         'There was an error while processing your request, please try again',
       ephemeral: true,
     })
+    throw error
   }
 })
 

@@ -17,7 +17,7 @@ export async function execute(interaction: any): Promise<void> {
   const question: string = interaction.options.getString('question')
   console.log(`Question: ${question}`)
   await interaction.deferReply()
-  const response: APIResponse = await axios
+  const response = await axios
     .post<APIResponse>(
       process.env.API_ENDPOINT as string,
       { question },
@@ -45,6 +45,10 @@ export async function execute(interaction: any): Promise<void> {
   //   '**Citation:**' +
   //   '\n' +
   //   response.links.map((link) => `• ${link}`).join('\n')
-  const resultData: string = response.result.output.raw
+  const resultData =
+    typeof response.result.output === 'object' &&
+    'raw' in response.result.output
+      ? (response.result.output.raw as string)
+      : 'Error processing response, please try again'
   return interaction.editReply(resultData)
 }
