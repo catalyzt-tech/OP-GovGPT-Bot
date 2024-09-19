@@ -17,7 +17,7 @@ export async function execute(interaction: any): Promise<void> {
   const question: string = interaction.options.getString('question')
   console.log(`Question: ${question}`)
   await interaction.deferReply()
-  const response = await axios
+  const response: APIResponse = await axios
     .post<APIResponse>(
       process.env.API_ENDPOINT as string,
       { question },
@@ -45,6 +45,6 @@ export async function execute(interaction: any): Promise<void> {
   //   '**Citation:**' +
   //   '\n' +
   //   response.links.map((link) => `• ${link}`).join('\n')
-  const resultData: string = response.result.output
+  const resultData: string = response.result.output.raw
   return interaction.editReply(resultData)
 }
