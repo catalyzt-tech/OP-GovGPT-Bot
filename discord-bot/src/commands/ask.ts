@@ -35,10 +35,6 @@ export async function execute(interaction: any): Promise<void> {
         links: [],
       }
     })
-
-  // if (answer.result.output.length > 2000) {
-  //   return await interaction.editReply(answer.result.output.slice(0, 2000))
-  // }
   // const resultData: string =
   //   response.result.output +
   //   '\n\n' +

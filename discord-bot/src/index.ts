@@ -1,5 +1,11 @@
 import 'dotenv/config'
-import { Client, Events, GatewayIntentBits } from 'discord.js'
+import {
+  Client,
+  Events,
+  GatewayIntentBits,
+  Interaction,
+  Message,
+} from 'discord.js'
 import * as ask from './commands/ask'
 
 const client = new Client({
@@ -11,11 +17,11 @@ const client = new Client({
   ],
 })
 
-client.once(Events.ClientReady, (readyClient) => {
-  console.log(`Ready! Logged in as ${readyClient.user.tag}`)
+client.once(Events.ClientReady, (readyClient: Client) => {
+  console.log(`Ready! Logged in as ${readyClient.user?.tag}`)
 })
 
-client.on(Events.MessageCreate, (message) => {
+client.on(Events.MessageCreate, (message: Message) => {
   // Ignore messages from the bot itself
   console.log(message.content)
   if (message.author.bot) return
@@ -26,7 +32,7 @@ client.on(Events.MessageCreate, (message) => {
   }
 })
 
-client.on(Events.InteractionCreate, async (interaction) => {
+client.on(Events.InteractionCreate, async (interaction: Interaction) => {
   if (!interaction.isCommand()) return
   const { commandName } = interaction
   try {
