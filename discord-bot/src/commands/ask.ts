@@ -41,10 +41,11 @@ export async function execute(interaction: any): Promise<void> {
   //   '**Citation:**' +
   //   '\n' +
   //   response.links.map((link) => `• ${link}`).join('\n')
+  //Handle the case where the response is an object with a raw property or can't be found
   const resultData =
     typeof response.result.output === 'object' &&
     'raw' in response.result.output
       ? (response.result.output.raw as string)
-      : 'Error processing response, please try again'
+      : `I’m sorry, but I’m having trouble finding any helpful information on this topic.`
   return interaction.editReply(resultData)
 }
