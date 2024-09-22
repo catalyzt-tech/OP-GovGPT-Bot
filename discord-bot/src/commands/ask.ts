@@ -27,11 +27,11 @@ export async function execute(interaction: any): Promise<void> {
         },
       }
     )
-    .then((response) => response.data)
+    .then((response) => response.data as APIResponse)
     .catch((error) => {
       console.error(error)
       return {
-        result: { output: 'Error fetching response, please try again' },
+        result: 'Error fetching response, please try again',
         links: [],
       }
     })
@@ -42,10 +42,8 @@ export async function execute(interaction: any): Promise<void> {
   //   '\n' +
   //   response.links.map((link) => `• ${link}`).join('\n')
   //Handle the case where the response is an object with a raw property or can't be found
-  const resultData =
-    typeof response.result.output === 'object' &&
-    'raw' in response.result.output
-      ? (response.result.output.raw as string)
-      : `I’m sorry, but I’m having trouble finding any helpful information on this topic.`
+  const resultData = response.result
+    ? response.result
+    : `I’m sorry, but I’m having trouble finding any helpful information on this topic. Please try rephrasing your question or asking something else.`
   return interaction.editReply(resultData)
 }
