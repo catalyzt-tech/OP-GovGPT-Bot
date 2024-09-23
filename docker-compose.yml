@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  discord_app:
+    build:
+      context: ./discord-bot
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000' # discord app listens on port 3000
+    volumes:
+      - .:/service
+    command: ['pnpm', 'dev']
+
+  telegram_app:
+    build:
+      context: ./telegram-bot
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000' # telegram app listens on port 3001 (host) -> 3000 (container)
+    volumes:
+      - .:/service
+    command: ['pnpm', 'dev']
