@@ -9,7 +9,7 @@ const bot = new TelegramBot(token, { polling: true })
 bot.on('message', async (msg: Message) => {
   const chatId = msg.chat.id
   const question = msg.text
-  console.log('Question' + question)
+  console.log(`[Telegramm] ${msg.from?.username} ask: ${question}`)
   try {
     const response = await axios
       .post<APIResponse>(

@@ -22,11 +22,10 @@ client.once(Events.ClientReady, (readyClient: Client) => {
 })
 
 client.on(Events.MessageCreate, (message: Message) => {
+  console.log(`[Discord] ${message.author.tag} ask: ${message.content}`)
   // Ignore messages from the bot itself
-  console.log(message.content)
   if (message.author.bot) return
 
-  console.log(message.content)
   if (message.content === 'ping') {
     message.reply('pong')
   }
