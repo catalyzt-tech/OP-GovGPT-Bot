@@ -16,7 +16,7 @@ services:
       context: ./telegram-bot
       dockerfile: Dockerfile
     ports:
-      - '3001:3000' # telegram app listens on port 3001 (host) -> 3000 (container)
+      - '3001:3001' # telegram app listens on port 3001 (host) -> 3000 (container)
     volumes:
       - .:/service
     command: ['pnpm', 'dev']

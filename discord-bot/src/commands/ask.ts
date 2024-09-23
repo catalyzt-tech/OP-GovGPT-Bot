@@ -15,7 +15,6 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: any): Promise<void> {
   const question: string = interaction.options.getString('question')
-  console.log(`Question: ${question}`)
   await interaction.deferReply()
   const response = await axios
     .post<APIResponse>(
