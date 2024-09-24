@@ -1,8 +1,8 @@
 # Distribution
-dist
-out
-build
-node_modules
+*dist
+*out*
+*build*
+*node_modules*
 
 # Logs
 *.log*
