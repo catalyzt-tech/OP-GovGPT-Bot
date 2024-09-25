@@ -22,6 +22,9 @@ bot.on('message', async (msg: Message) => {
         }
       )
       .then((response) => response.data as APIResponse)
+      .catch((error) => {
+        throw error
+      })
     const answer: string = response.result
     bot.sendMessage(chatId, answer)
   } catch (error) {
