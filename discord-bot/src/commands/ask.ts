@@ -9,7 +9,7 @@ export const data = new SlashCommandBuilder()
   .addStringOption((option) =>
     option
       .setName('question')
-      .setDescription('The question you want to ask')
+      .setDescription('The question about Optimism governance you want to ask')
       .setRequired(true)
   )
 
